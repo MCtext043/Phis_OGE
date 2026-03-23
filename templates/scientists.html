@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex align-items-end justify-content-between gap-3 flex-wrap">
+  <div>
+    <h1 class="h3 fw-bold mb-2">
+      <i class="bi bi-person-badge text-accent me-2" aria-hidden="true"></i>Учёные и вклад
+    </h1>
+    <p class="text-secondary mb-0">Коротко: чьи идеи стоят за формулами и законами.</p>
+  </div>
+  <a class="btn btn-primary" href="{{ url_for('quiz') }}">
+    <i class="bi bi-check2-square me-2" aria-hidden="true"></i>Тест
+  </a>
+</div>
+
+<div class="row g-3 mt-3">
+  {% for s in scientists %}
+    <div class="col-md-6 col-lg-4">
+      <div class="scientist-card card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <div class="badge bg-accent text-white mb-2">
+            <i class="bi {{ field_icons.get(s.field, 'bi-diagram-3') }} me-1" aria-hidden="true"></i>{{ s.field }}
+          </div>
+          <h2 class="h5 fw-bold mb-2">
+            <i class="bi bi-stars text-accent me-2" aria-hidden="true"></i>{{ s.title }}
+          </h2>
+          <p class="text-secondary mb-0">{{ s.body }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
+

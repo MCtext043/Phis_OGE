@@ -1,0 +1,99 @@
+:root {
+  --bg: #eef1f5; /* серый фон */
+  --accent: #0d6efd; /* синий акцент (bootstrap primary) */
+  --accent-2: #0b5ed7;
+}
+
+body {
+  background: var(--bg);
+}
+
+.bg-accent {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)) !important;
+}
+
+.text-accent {
+  color: var(--accent) !important;
+}
+
+.hero {
+  background: linear-gradient(180deg, rgba(13, 110, 253, 0.08), rgba(13, 110, 253, 0.02));
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -40% -30% auto auto;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle at 30% 30%, rgba(13, 110, 253, 0.18), rgba(13, 110, 253, 0) 60%);
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+}
+
+.quick-panel {
+  backdrop-filter: blur(6px);
+}
+
+.formula-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 1rem;
+}
+
+.formula-block {
+  background: #ffffff;
+}
+
+.info-card {
+  background: #ffffff;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.08) !important;
+}
+
+.scientist-card {
+  background: #ffffff;
+}
+
+.nav-link i {
+  font-size: 1.05rem;
+}
+
+@media (max-width: 575.98px) {
+  .hero::after {
+    width: 260px;
+    height: 260px;
+    inset: -50% -50% auto auto;
+  }
+
+  .hero .card-body {
+    padding: 1.25rem !important;
+  }
+
+  .display-6 {
+    font-size: 2rem;
+  }
+
+  .form-check-lg {
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+  }
+
+  .accordion-button {
+    padding: 0.85rem 1rem;
+  }
+
+  .formula-block {
+    padding: 0.9rem !important;
+  }
+
+  .formula-code {
+    font-size: 0.95rem;
+  }
+}
+
