@@ -9,7 +9,7 @@
           <i class="bi bi-lightning-charge text-accent me-2" aria-hidden="true"></i>Справочник по физике для ОГЭ
         </h1>
         <p class="lead text-secondary mb-4">
-          Короткая теория, формулы по разделам и список учёных. В конце — тест для закрепления.
+          Полезные формулы по разделам, список учёных и тест для закрепления.
         </p>
         <div class="d-flex flex-wrap gap-2">
           <a class="btn btn-primary" href="{{ url_for('quiz') }}">
@@ -28,15 +28,15 @@
             <div class="fw-bold">Как готовиться</div>
           </div>
           <div class="d-flex align-items-start gap-3 mb-2">
-            <i class="bi bi-book fs-5 text-accent" aria-hidden="true"></i>
+            <i class="bi bi-diagram-3 fs-5 text-accent" aria-hidden="true"></i>
             <div class="text-secondary">
-              Сначала прочитай теорию в нужном разделе.
+              Сначала открой нужный раздел формул и выпиши основные зависимости.
             </div>
           </div>
           <div class="d-flex align-items-start gap-3 mb-2">
-            <i class="bi bi-diagram-3 fs-5 text-accent" aria-hidden="true"></i>
+            <i class="bi bi-stars fs-5 text-accent" aria-hidden="true"></i>
             <div class="text-secondary">
-              Затем открой формулы и выпиши то, что подходит под задачу.
+              Сверься с карточками учёных и связанными темами.
             </div>
           </div>
           <div class="d-flex align-items-start gap-3">
@@ -52,7 +52,7 @@
 </section>
 
 <div class="row g-4 mt-1">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="info-card card h-100 shadow-sm border-0">
       <div class="card-body">
         <div class="badge bg-accent text-white mb-2">
@@ -70,25 +70,7 @@
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div class="info-card card h-100 shadow-sm border-0">
-      <div class="card-body">
-        <div class="badge bg-accent text-white mb-2">
-          <i class="bi bi-book me-1" aria-hidden="true"></i>Теория
-        </div>
-        <h2 class="h5 fw-bold mb-2">
-          <i class="bi bi-lightbulb text-accent me-2" aria-hidden="true"></i>Понимай смысл
-        </h2>
-        <p class="text-secondary mb-3">Короткие объяснения и типовые ловушки.</p>
-        <div class="small text-muted mb-3">{{ theory_topics }} разделов</div>
-        <a class="btn btn-outline-primary btn-sm" href="{{ url_for('theory') }}">
-          <i class="bi bi-arrow-right me-1" aria-hidden="true"></i>Открыть
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="info-card card h-100 shadow-sm border-0">
       <div class="card-body">
         <div class="badge bg-accent text-white mb-2">
@@ -105,11 +87,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="alert alert-info mt-4 mb-0 d-flex align-items-start gap-2">
-  <i class="bi bi-info-circle text-accent mt-1" aria-hidden="true"></i>
-  Совет: сначала прочитай теорию, затем открой формулы и пройди тест. После — вернись к ошибкам.
 </div>
 {% endblock %}
 

@@ -7,11 +7,11 @@
       <i class="bi bi-check2-square text-accent me-2" aria-hidden="true"></i>Тест на закрепление
     </h1>
     <p class="text-secondary mb-0">
-      {{ 'Проверь ответы.' if submitted else 'Выбери вариант для каждого вопроса.' }}
+      {{ 'Проверь ответы.' if submitted else 'Случайные 5 вопросов из базы 50. Варианты ответов перемешаны.' }}
     </p>
   </div>
-  <a class="btn btn-outline-primary" href="{{ url_for('theory') }}">
-    <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>К теории
+  <a class="btn btn-outline-primary" href="{{ url_for('formulas') }}">
+    <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>К формулам
   </a>
 </div>
 
@@ -88,18 +88,18 @@
   </div>
 
   <div class="mt-4 d-grid gap-3">
-    {% for q, selected, correct in details %}
+    {% for q in details %}
       <div class="card border-0 shadow-sm">
         <div class="card-body">
           <div class="fw-bold mb-2">
-            <i class="bi bi-journal-check text-accent me-2" aria-hidden="true"></i>{{ loop.index }}. {{ q.text }}
+            <i class="bi bi-journal-check text-accent me-2" aria-hidden="true"></i>{{ loop.index }}. {{ q.question }}
           </div>
 
           <div class="mb-3">
             <span class="badge bg-success">
-              <i class="bi bi-check2-circle me-1" aria-hidden="true"></i>Верный: {{ q.options[correct] }}
+              <i class="bi bi-check2-circle me-1" aria-hidden="true"></i>Верный: {{ q.options[q.correct] }}
             </span>
-            {% if selected == correct %}
+            {% if q.selected == q.correct %}
               <span class="badge bg-primary ms-2">
                 <i class="bi bi-emoji-smile me-1" aria-hidden="true"></i>Твой ответ: совпал
               </span>
@@ -107,7 +107,7 @@
               <span class="badge bg-danger ms-2">
                 <i class="bi bi-emoji-frown me-1" aria-hidden="true"></i>
                 Твой ответ:
-                {% if selected >= 0 %}{{ q.options[selected] }}{% else %}не выбран{% endif %}
+                {% if q.selected >= 0 %}{{ q.options[q.selected] }}{% else %}не выбран{% endif %}
               </span>
             {% endif %}
           </div>
